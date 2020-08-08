@@ -1,0 +1,30 @@
+<div *ngIf="order" class="container pt-4" style="margin-right:0!important;">
+    <div class="card" style="max-width: 75%!important;">
+        <h5 class="card-header text-center">Resumen Orden: {{order.id}}</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <label>Nombre: {{order.customerName}}</label><br>
+                </div>
+                <div class="col-6">
+                    <label>Correo: {{order.customerEmail}}</label><br>
+                </div>
+                <div class="col-6">
+                    <label>Celular: {{order.customerMobile}}</label><br>
+                </div>
+                <div class="col-6">
+                    <label>Producto: {{order.product.name}}</label><br>
+                </div>
+                <div class="col-6">
+                    <label>Valor: {{order.value | currency : 'USD'}}</label><br>
+                </div>
+                <div class="col-6">
+                    <label>Estado: {{order.status}}</label><br>
+                </div>
+                <div class="col-6" *ngIf="order.status=='CREATED'">
+                    <button class="btn btn-success" (click)="Pagar()">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -99,6 +99,12 @@
     <Content Include="karma.conf.js" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\Component\Order\resume-order\resume-order.component.css" />
+    <Content Include="src\app\Component\Order\resume-order\resume-order.component.html" />
+    <Content Include="src\app\Component\product\product.component.css" />
+    <Content Include="src\app\Component\product\product.component.html" />
+    <Content Include="src\app\Component\Shared\navbar\navbar.component.css" />
+    <Content Include="src\app\Component\Shared\navbar\navbar.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
@@ -169,6 +175,9 @@
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\Component\Order\resume-order\resume-order.component.ts" />
+    <TypeScriptCompile Include="src\app\Component\product\product.component.ts" />
+    <TypeScriptCompile Include="src\app\Component\Shared\navbar\navbar.component.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />

@@ -1,0 +1,63 @@
+<div *ngIf="products" class="container pt-4">
+    <div class="table-responsive pt-4" *ngIf="products">
+        <table id="TablaGestorUsuarios" class="TablaResultados table table-bordered table-sm container">
+            <thead>
+                <tr>
+                    <th class="text-center col" style="width: 18%;">Nombre</th>
+                    <th class="text-center col" style="width: 12.5%;">Descripción</th>
+                    <th class="text-center col" style="width: 12.5%;">Valor</th>
+                    <th class="text-center col" style="width: 12.5%;">Comprar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products" class="placeholderTable">
+                    <td class="text-left"><strong>{{ product.name }}</strong></td>
+                    <td class="text-left"><strong>{{ product.description }}</strong></td>
+                    <td class="text-center">{{ product.value | currency : 'USD'}}</td>
+                    <td class="text-center">
+                        <a style="cursor:pointer; cursor: hand;" (click)="Buy(product.id)">
+                            <i class="fas fa-shopping-cart" style="color: #5cb85c;"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="orderModal" tabindex="-1" enctype="multipart/form-data" data-backdrop="static" aria-labelledby="showModal" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="forma" autocomplete="off" ngNativeValidate>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showModal">Confirmar Orden</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ClosedModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body form-group">
+                    <div class="form-group">
+                        <label for="name" class="text-info">Nombre:</label><br>
+                        <input formControlName="name" type="text" id="name" name="name" class="form-control" placeholder="Nombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-info">Correo:</label><br>
+                        <input formControlName="email" type="text" class="form-control input-lg" name="email" placeholder="Correo" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="text-info">Celular:</label><br>
+                        <input formControlName="mobile" type="text" class="form-control input-lg" name="mobile" placeholder="Celular" required />
+                    </div>
+                </div>
+
+                <div class="modal-footer ">
+                    <div class="btn-group ">
+                        <input type="submit" name="submit" class="btn btn-info btn-md" value="Crear" (click)="CreateOrder()" />
+                        <input type="button" class="btn btn-warn btn-md" value="Cancelar" (click)="ClosedModal()" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

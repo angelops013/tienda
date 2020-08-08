@@ -1,0 +1,15 @@
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.deps.json
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.dll
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.csprojAssemblyReference.cache
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.AssemblyInfoInputs.cache
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.AssemblyInfo.cs
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.Modelos.dll
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.runtimeconfig.json
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.runtimeconfig.dev.json
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\bin\Debug\netcoreapp3.1\Tienda.Modelos.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.csproj.CopyComplete
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.dll
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.AccesoDatos\obj\Debug\netcoreapp3.1\Tienda.AccesoDatos.genruntimeconfig.cache
