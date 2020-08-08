@@ -1,0 +1,43 @@
+<div>
+    <h3 class="text-center text-white pt-5">Create user</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div class="container text-center">
+                <div *ngIf="alertError" class="alert alert-danger">
+                    {{alertErrorMessage}}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form [formGroup]="forma" autocomplete="off" class="LoginForm" ngNativeValidate>
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Username:</label><br>
+                            <input formControlName="username" type="text" id="user" name="user" class="form-control" placeholder="Username" required autocomplete="off" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input formControlName="password" type="password" id="password" name="password" class="form-control" placeholder="Password" required autocomplete="off" />
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName" class="text-info">First Name:</label><br>
+                            <input formControlName="firstName" type="text" class="form-control input-lg" name="firstName" placeholder="First Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="text-info">Last Name:</label><br>
+                            <input formControlName="lastName" type="text" class="form-control input-lg" name="lastName" placeholder="Last Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="rol" class="text-info">Rol:</label><br>
+                            <input formControlName="rol" type="text" class="form-control input-lg" name="rol" placeholder="Rol" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit" (click)="Create()" />
+                            <input type="button" class="btn btn-warn btn-md" value="Cancel" (click)="Redirect('/users')" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
