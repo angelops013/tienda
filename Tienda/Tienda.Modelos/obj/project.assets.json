@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.AccesoDatos\\Tienda.AccesoDatos.csproj",
-      "projectName": "Tienda.AccesoDatos",
-      "projectPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.AccesoDatos\\Tienda.AccesoDatos.csproj",
+      "projectUniqueName": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj",
+      "projectName": "Tienda.Modelos",
+      "projectPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj",
       "packagesPath": "C:\\Users\\pereza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.AccesoDatos\\obj\\",
+      "outputPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

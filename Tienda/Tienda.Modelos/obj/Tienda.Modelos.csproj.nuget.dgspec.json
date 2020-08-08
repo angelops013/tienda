@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\TIenda.Api\\TIenda.Api.csproj": {}
+    "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\TIenda.Api\\TIenda.Api.csproj": {
+    "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\TIenda.Api\\TIenda.Api.csproj",
-        "projectName": "TIenda.Api",
-        "projectPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\TIenda.Api\\TIenda.Api.csproj",
+        "projectUniqueName": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj",
+        "projectName": "Tienda.Modelos",
+        "projectPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\Tienda.Modelos.csproj",
         "packagesPath": "C:\\Users\\pereza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\TIenda.Api\\obj\\",
+        "outputPath": "C:\\Users\\pereza\\Google Drive\\Angelo\\TestEvertec\\tienda\\Tienda\\Tienda.Modelos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -53,9 +53,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
