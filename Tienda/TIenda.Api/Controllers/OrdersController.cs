@@ -33,5 +33,12 @@ namespace TIenda.Api.Controllers
             Order order = await _orderFuntions.GetOrder(id);
             return Ok(order);
         }
+
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            List<Order> orders = await _orderFuntions.GetAllOrders();
+            return Ok(orders);
+        }
     }
 }

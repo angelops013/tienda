@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,12 @@ namespace Tienda.Funciones.Implementations
             await _dataContext.SaveChangesAsync();
 
             return order.Id;
+        }
+
+        public async Task<List<Order>> GetAllOrders()
+        {
+            List<Order> orders = await _dataContext.Orders.Include(o => o.Product).ToListAsync();
+            return orders;
         }
 
         public async Task<Order> GetOrder(Int32 id)
