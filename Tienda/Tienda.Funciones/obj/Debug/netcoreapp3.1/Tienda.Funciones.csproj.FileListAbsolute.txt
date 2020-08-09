@@ -4,6 +4,11 @@ C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\b
 C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.csprojAssemblyReference.cache
 C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.AssemblyInfoInputs.cache
 C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.AssemblyInfo.cs
-C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.csproj.CoreCompileInputs.cache
 C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.dll
 C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.dll
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\bin\Debug\netcoreapp3.1\Tienda.Modelos.dll
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\bin\Debug\netcoreapp3.1\Tienda.AccesoDatos.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\bin\Debug\netcoreapp3.1\Tienda.Modelos.pdb
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.csproj.CopyComplete
+C:\Users\pereza\Google Drive\Angelo\TestEvertec\tienda\Tienda\Tienda.Funciones\obj\Debug\netcoreapp3.1\Tienda.Funciones.csproj.CoreCompileInputs.cache

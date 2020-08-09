@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tienda.AccesoDatos;
+using Tienda.Funciones.Interfaces;
 using Tienda.Modelos.DTO;
 using Tienda.Modelos.Entities;
 
@@ -14,36 +15,22 @@ namespace TIenda.Api.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        readonly DataContext _dataContext;
-        public OrdersController(DataContext dataContext)
+        readonly IOrderFuntions _orderFuntions;
+        public OrdersController(IOrderFuntions orderFuntions)
         {
-            _dataContext = dataContext;
+            _orderFuntions = orderFuntions;
         }
 
         public async Task<ActionResult> Post([FromBody] CreateOrder createOrder)
         {
-            Product product = await _dataContext.Products.FindAsync(createOrder.ProductId);
-            var order = new Order
-            {
-                ProductId = product.Id,
-                Value = product.Value,
-                CustomerEmail = createOrder.CustomerEmail,
-                CustomerName = createOrder.CustomerName,
-                CustomerMobile = createOrder.CustomerMobile,
-                Status = "CREATED",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
-            };
-            _dataContext.Orders.Add(order);
-            await _dataContext.SaveChangesAsync();
-            return Ok(new { order.Id });
+            Int32 orderId = await _orderFuntions.CreateOrder(createOrder);
+            return Ok(new { Id = orderId });
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> Get([FromRoute] Int32 id)
         {
-            Order order = await _dataContext.Orders.FindAsync(id);
-            _dataContext.Entry(order).Reference(b => b.Product).Load();
+            Order order = await _orderFuntions.GetOrder(id);
             return Ok(order);
         }
     }

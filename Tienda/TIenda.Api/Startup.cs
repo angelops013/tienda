@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Tienda.AccesoDatos;
+using Tienda.Funciones.Implementations;
+using Tienda.Funciones.Interfaces;
 
 namespace TIenda.Api
 {
@@ -28,6 +30,9 @@ namespace TIenda.Api
         {
             services.AddDbContext<DataContext>();
             services.AddControllers();
+            services.AddScoped<IProductFuntions, ProductFuntions>();
+            services.AddScoped<IOrderFuntions, OrderFuntions>();
+            services.AddScoped<IPaymentFuntions, PaymentFuntions>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,6 +23,11 @@ export class ResumeOrderComponent implements OnInit {
   }
 
   Pagar() {
-
+    this._http.post(environment.baseUrl + 'api/payments/' + this.order.id, null).subscribe((data: any) => {
+      location.href = data.urlRedirect;
+    },
+      error => {
+        console.log(error);
+      });
   }
 }

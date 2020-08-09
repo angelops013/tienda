@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tienda.AccesoDatos\Tienda.AccesoDatos.csproj" />
+    <ProjectReference Include="..\Tienda.Funciones\Tienda.Funciones.csproj" />
   </ItemGroup>
 
 

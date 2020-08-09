@@ -13,7 +13,7 @@
                 <tr *ngFor="let product of products" class="placeholderTable">
                     <td class="text-left"><strong>{{ product.name }}</strong></td>
                     <td class="text-left"><strong>{{ product.description }}</strong></td>
-                    <td class="text-center">{{ product.value | currency : 'USD'}}</td>
+                    <td class="text-right">{{ product.value | currency : 'USD'}}</td>
                     <td class="text-center">
                         <a style="cursor:pointer; cursor: hand;" (click)="Buy(product.id)">
                             <i class="fas fa-shopping-cart" style="color: #5cb85c;"></i>
