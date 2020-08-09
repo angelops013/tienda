@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './Component/product/product.component';
 import { NavbarComponent } from './Component/Shared/navbar/navbar.component';
 import { ResumeOrderComponent } from './Component/order/resume-order/resume-order.component';
+import { PaymentComponent } from './Component/payment/payment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProductComponent,
-    ResumeOrderComponent
+    ResumeOrderComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

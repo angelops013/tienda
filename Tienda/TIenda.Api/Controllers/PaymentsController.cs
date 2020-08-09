@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tienda.Funciones.Interfaces;
+using Tienda.Modelos.DTO;
 
 namespace TIenda.Api.Controllers
 {
@@ -17,16 +18,21 @@ namespace TIenda.Api.Controllers
         {
             _paymentFuntions = paymentFuntions;
         }
-        [HttpPost("{orderId}")]
-        public async Task<ActionResult> Post([FromRoute] Int32 orderId)
+        public async Task<ActionResult> Post([FromBody] CreatePayment createPayment)
         {
             String userAgent = Request.Headers["User-Agent"].ToString();
-            String remoteIpAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            String urlRedirect = await _paymentFuntions.CreatePayment(orderId, userAgent, remoteIpAddress);
+            String urlRedirect = await _paymentFuntions.CreatePayment(createPayment.OrderId, userAgent, createPayment.RemoteIpAddress);
             if (String.IsNullOrEmpty(urlRedirect))
                 return BadRequest();
 
             return Ok(new { urlRedirect });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get([FromRoute] Int32 id)
+        {
+            Int32 orderId = await _paymentFuntions.CheckStatus(id);
+            return Ok(new { orderId });
         }
     }
 }

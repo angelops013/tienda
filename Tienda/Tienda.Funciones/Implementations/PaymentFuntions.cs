@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
@@ -148,6 +150,73 @@ namespace Tienda.Funciones.Implementations
                 return GetBase64(Encoding.UTF8.GetBytes(input));
 
             return "";
+        }
+
+        public async Task<Int32> CheckStatus(Int32 paymentId)
+        {
+            Modelos.Entities.Payment payment = await _dataContext.Payments.FindAsync(paymentId);
+            _dataContext.Entry(payment).Reference(b => b.Order).Load();
+            var auth = new Auth()
+            {
+                login = _configuration["Custom:P2PLogin"],
+                seed = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                nonce = new Random().GetHashCode().ToString(),
+                tranKey = _configuration["Custom:P2PTranKey"]
+            };
+
+            auth.tranKey = GetBase64(GetSha1Bytes($"{auth.nonce}{auth.seed}{auth.tranKey}"));
+            auth.nonce = GetBase64(auth.nonce);
+
+            var checkStatus = new
+            {
+                auth
+            };
+
+            using var client = new HttpClient
+            {
+                BaseAddress = new Uri(_configuration["Custom:P2PUrl"])
+            };
+            String jsonString = JsonConvert.SerializeObject(checkStatus);
+            StringContent stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+            HttpResponseMessage responseMessage = await client.PostAsync($"api/session/{payment.RequestId}", stringContent);
+            String resultString = await responseMessage.Content.ReadAsStringAsync();
+
+            var checkStatusResponse = JsonConvert.DeserializeObject<CheckStatusResponse>(resultString);
+
+            if (checkStatusResponse.payment != null || checkStatusResponse.status.status == "REJECTED")
+            {
+                if (checkStatusResponse.payment.Count > 0)
+                {
+                    PaymentP paymentInfo = checkStatusResponse.payment.Any(p => p.status.status == "APPROVED") ?
+                        checkStatusResponse.payment.FirstOrDefault(p => p.status.status == "APPROVED") : checkStatusResponse.payment.FirstOrDefault();
+                    switch (paymentInfo.status.status)
+                    {
+                        case "APPROVED":
+                            payment.IssuerName = paymentInfo.issuerName;
+                            payment.MethodName = paymentInfo.paymentMethodName;
+                            payment.Authorization = paymentInfo.authorization;
+                            payment.Date = paymentInfo.status.date;
+                            payment.Receipt = paymentInfo.receipt;
+                            payment.Status = "Aprobado";
+                            payment.Order.Status = "PAYED";
+                            break;
+                        case "REJECTED":
+                        default:
+                            payment.Status = "Rechazado";
+                            payment.Order.Status = "REJECTED";
+                            break;
+                    }
+                }
+                else
+                {
+                    payment.Status = "Rechazado";
+                    payment.Order.Status = "REJECTED";
+                }
+                _dataContext.Payments.Attach(payment);
+                _dataContext.SaveChanges();
+            }
+
+            return payment.OrderId;
         }
     }
 }

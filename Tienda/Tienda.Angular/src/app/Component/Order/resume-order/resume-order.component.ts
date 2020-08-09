@@ -10,9 +10,11 @@ import { environment } from '../../../../environments/environment';
 })
 export class ResumeOrderComponent implements OnInit {
   order: any;
+  userIp: string;
   constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.GetUserIp();
     let id = this._route.snapshot.params["id"];
     this._http.get(environment.baseUrl + 'api/orders/' + id).subscribe((data: any) => {
       this.order = data;
@@ -22,12 +24,23 @@ export class ResumeOrderComponent implements OnInit {
       });
   }
 
-  Pagar() {
-    this._http.post(environment.baseUrl + 'api/payments/' + this.order.id, null).subscribe((data: any) => {
+  Pay() {
+    let request = {
+      OrderId: this.order.id,
+      RemoteIpAddress: this.userIp
+    };
+    this._http.post(environment.baseUrl + 'api/payments/', request).subscribe((data: any) => {
       location.href = data.urlRedirect;
     },
       error => {
         console.log(error);
       });
+  }
+
+  GetUserIp() {
+    this._http.get<{ ip: string }>('https://jsonip.com')
+      .subscribe((data: any) => {
+        this.userIp = data.ip;
+      })
   }
 }

@@ -50,8 +50,8 @@ export class ProductComponent implements OnInit {
         CustomerMobile: this.forma.value.mobile,
         ProductId: this.productId
       };
-      console.log(request);
       this._http.post(environment.baseUrl + 'api/orders', request).subscribe((data: any) => {
+        this.ClosedModal();
         this._router.navigate(['/order/' + data.id]);
       },
         error => {

@@ -8,5 +8,6 @@ namespace Tienda.Funciones.Interfaces
     public interface IPaymentFuntions
     {
         Task<String> CreatePayment(Int32 orderId, String userAgent, String remoteIpAddress);
+        Task<Int32> CheckStatus(Int32 paymentId);
     }
 }
