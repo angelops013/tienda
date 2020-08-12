@@ -20,6 +20,8 @@ namespace TIenda.Api.Controllers
         }
         public async Task<ActionResult> Post([FromBody] CreatePayment createPayment)
         {
+            if (createPayment.OrderId <= 0)
+                return BadRequest();
             String userAgent = Request.Headers["User-Agent"].ToString();
             String urlRedirect = await _paymentFuntions.CreatePayment(createPayment.OrderId, userAgent, createPayment.RemoteIpAddress);
             if (String.IsNullOrEmpty(urlRedirect))

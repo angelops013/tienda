@@ -24,8 +24,18 @@ namespace Tienda.Funciones.Implementations
 
         public async Task<Product> GetProduct(Int32 id)
         {
-            Product product = await _dataContext.Products.FindAsync(id);
-            return product;
+            if (await ExistProduc(id))
+            {
+                Product product = await _dataContext.Products.FindAsync(id);
+                return product;
+            }
+
+            return null;
+        }
+
+        async Task<Boolean> ExistProduc(Int32 id)
+        {
+            return await _dataContext.Products.AnyAsync(p => p.Id == id);
         }
     }
 }

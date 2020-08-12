@@ -29,17 +29,21 @@ namespace Tienda.Funciones.Implementations
         }
         public async Task<String> CreatePayment(Int32 orderId, String userAgent, String remoteIpAddress)
         {
-            var payment = new Modelos.Entities.Payment
+            if (await _orderFuntions.ExistOrder(orderId))
             {
-                Date = DateTime.Now,
-                OrderId = orderId,
-                Status = "Pendiente"
-            };
-            _dataContext.Payments.Add(payment);
-            await _dataContext.SaveChangesAsync();
-            _dataContext.Entry(payment).Reference(b => b.Order).Load();
-            String urlRedirect = await InitiatePayment(payment, userAgent, remoteIpAddress);
-            return urlRedirect;
+                var payment = new Modelos.Entities.Payment
+                {
+                    Date = DateTime.Now,
+                    OrderId = orderId,
+                    Status = "Pendiente"
+                };
+                _dataContext.Payments.Add(payment);
+                await _dataContext.SaveChangesAsync();
+                _dataContext.Entry(payment).Reference(b => b.Order).Load();
+                String urlRedirect = await InitiatePayment(payment, userAgent, remoteIpAddress);
+                return urlRedirect;
+            }
+            return null;
         }
 
         async Task<String> InitiatePayment(Modelos.Entities.Payment paymentCreated, String userAgent, String remoteIpAddress)
@@ -47,9 +51,12 @@ namespace Tienda.Funciones.Implementations
             String urlRedirect = String.Empty;
             PaymentRequest paymentRequest = CreateRequest(paymentCreated, userAgent, remoteIpAddress);
 
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri(_configuration["Custom:P2PUrl"]);
+                using var client = new HttpClient
+                {
+                    BaseAddress = new Uri(_configuration["Custom:P2PUrl"])
+                };
                 String jsonString = JsonConvert.SerializeObject(paymentRequest);
                 StringContent stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
                 HttpResponseMessage responseMessage = await client.PostAsync("api/session", stringContent);
@@ -71,7 +78,9 @@ namespace Tienda.Funciones.Implementations
                 _dataContext.Payments.Attach(paymentCreated);
                 _dataContext.SaveChanges();
             }
-
+            catch (Exception)
+            {
+            }
             return urlRedirect;
         }
 

@@ -23,14 +23,22 @@ namespace TIenda.Api.Controllers
 
         public async Task<ActionResult> Post([FromBody] CreateOrder createOrder)
         {
+            if (createOrder.ProductId <= 0)
+                return BadRequest();
             Int32 orderId = await _orderFuntions.CreateOrder(createOrder);
+            if (orderId == -1)
+                return BadRequest();
             return Ok(new { Id = orderId });
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> Get([FromRoute] Int32 id)
         {
+            if (id <= 0)
+                return BadRequest();
             Order order = await _orderFuntions.GetOrder(id);
+            if (order is null)
+                return BadRequest();
             return Ok(order);
         }
 

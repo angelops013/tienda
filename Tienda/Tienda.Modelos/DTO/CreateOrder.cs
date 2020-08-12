@@ -9,7 +9,7 @@ namespace Tienda.Modelos.DTO
     {
         [Required]
         public String CustomerName { get; set; }
-        [Required]
+        [Required, EmailAddress]
         public String CustomerEmail { get; set; }
         [Required]
         public String CustomerMobile { get; set; }

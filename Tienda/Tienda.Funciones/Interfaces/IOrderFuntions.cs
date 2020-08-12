@@ -12,5 +12,6 @@ namespace Tienda.Funciones.Interfaces
         Task<Int32> CreateOrder(CreateOrder createOrder);
         Task<Order> GetOrder(Int32 id);
         Task<List<Order>> GetAllOrders();
+        Task<Boolean> ExistOrder(Int32 id);
     }
 }

@@ -22,6 +22,9 @@ namespace Tienda.Funciones.Implementations
         public async Task<Int32> CreateOrder(CreateOrder createOrder)
         {
             Product product = await _productFuntions.GetProduct(createOrder.ProductId);
+            if (product is null)
+                return -1;
+
             var order = new Order
             {
                 ProductId = product.Id,
@@ -47,9 +50,18 @@ namespace Tienda.Funciones.Implementations
 
         public async Task<Order> GetOrder(Int32 id)
         {
-            Order order = await _dataContext.Orders.FindAsync(id);
-            _dataContext.Entry(order).Reference(b => b.Product).Load();
-            return order;
+            if (await ExistOrder(id))
+            {
+                Order order = await _dataContext.Orders.FindAsync(id);
+                _dataContext.Entry(order).Reference(b => b.Product).Load();
+                return order;
+            }
+            return null;
+        }
+
+        public async Task<Boolean> ExistOrder(Int32 id)
+        {
+            return await _dataContext.Orders.AnyAsync(o => o.Id == id);
         }
     }
 }
